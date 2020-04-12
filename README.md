@@ -1,2 +1,2 @@
 # AudioAnalytica
-Audio Analytics platform.
+Audio Analytics platform
