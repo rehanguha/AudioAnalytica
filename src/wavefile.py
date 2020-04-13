@@ -15,7 +15,7 @@ def audio_waveplot(INPUTPATH, OUTPATH):
         canvas = FigureCanvas(fig)
         ax = fig.add_subplot(111)
         p = librosa.display.waveplot(x, sr=sr, ax=ax)
-        fig.savefig(OUTPATH+FILENAME+"_waveplot")
+        fig.savefig(OUTPATH + "waveplot")
 
         del fig, canvas, ax, p
 
@@ -24,10 +24,10 @@ def audio_waveplot(INPUTPATH, OUTPATH):
         ax = fig.add_subplot(111)
         p = librosa.display.specshow(Xdb, sr=sr, x_axis='time', y_axis='hz', ax=ax)
 
-        fig.savefig(OUTPATH+FILENAME+"_spec")
+        fig.savefig(OUTPATH + "spec")
 
         del fig, canvas, ax, p
 
         return "Complete"
-    except:
-        return "Error"
+    except Exception as e:
+        return "Error: " + str(e)

@@ -6,3 +6,4 @@ audioanalytica_dev
 *.pyc
 *.TextGrid
 experiments
+output/*
