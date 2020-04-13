@@ -7,14 +7,13 @@ Created on Fri Mar 13 11:58:29 2020
 """
 from src.utils import extractFilename, mkDIR
 from flask import Flask, request, json
-import speech_recognition as sr
-from os import path
+import os
 from wit import Wit
 import src.audioanalysis as aa
 import src.wavefile as wave
-from IPython import embed
 from flask_cors import CORS
 from src.CONSTANTS import *
+from src.pyaa import runall
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -48,6 +47,12 @@ def waveform():
     mkDIR(outputpath)
     status = wave.audio_waveplot(INPUTPATH=filename,OUTPATH=outputpath)
     return status
+
+# /audioanalysis?filename=<inputfilename with path>
+@app.route("/audioanalysis", methods = ['GET', 'POST'])
+def audioanalysis():
+    runall()
+
 
 if __name__ == '__main__':
    app.run(host="0.0.0.0", debug=True, port=5001)

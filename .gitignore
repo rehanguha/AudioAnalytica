@@ -7,3 +7,4 @@ audioanalytica_dev
 *.TextGrid
 experiments
 output/*
+src/pyAudioAnalysis/*
