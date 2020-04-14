@@ -15,16 +15,6 @@ source AudioAnalytica/bin/activate
 ```shell
 
 python3 -m pip install requirements.txt
+python3 -m pip install src/pyAudioAnalysis/requirements.txt
 
 ```
-
-
-```shell
-
-cd src
-git clone https://github.com/tyiannak/pyAudioAnalysis.git
-pip install -r pyAudioAnalysis/requirements.txt
-pip install -e pyAudioAnalysis
-
-```
-

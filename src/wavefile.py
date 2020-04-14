@@ -8,7 +8,6 @@ def audio_waveplot(INPUTPATH, OUTPATH):
     x , sr = librosa.load(INPUTPATH)
     X = librosa.stft(x)
     Xdb = librosa.amplitude_to_db(abs(X))
-    FILENAME= extractFilename(INPUTPATH)
     
     try:
         fig = plt.Figure(figsize=(14, 5), dpi=100)
