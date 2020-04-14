@@ -49,4 +49,8 @@ urllib3==1.25.8
 wcwidth==0.1.9
 Werkzeug==1.0.1
 wit==5.1.0
+<<<<<<< Updated upstream
 wrapt==1.11.2
+=======
+wrapt==1.11.2
+>>>>>>> Stashed changes
