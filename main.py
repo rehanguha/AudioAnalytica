@@ -13,7 +13,7 @@ import src.audioanalysis as aa
 import src.wavefile as wave
 from flask_cors import CORS
 from src.CONSTANTS import *
-from src.pyaa import zcr_sigenergy
+from src.pyaa import zcr_sigenergy, feature_extraction
 import glob
 
 app = Flask(__name__)
@@ -64,6 +64,18 @@ def analyze():
     outputpath = "output/" + str(name) + "/"
     mkDIR(outputpath)
     status = zcr_sigenergy(INPUTPATH=filename, OUTPATH=outputpath)
+    return status
+
+# /fe?filename=<inputfilename with path>
+@app.route("/fe", methods = ['GET', 'POST'])
+def fe():
+    filename = request.args.get('filename')
+    name = extractFilename(filename)
+    outputpath = "output/" + str(name) + "/"
+    mkDIR(outputpath)
+
+    status = feature_extraction(INPUTPATH=filename, OUTPATH=outputpath)
+    
     return status
 
 

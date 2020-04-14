@@ -1,12 +1,10 @@
 from pyAudioAnalysis import audioBasicIO
 from pyAudioAnalysis import ShortTermFeatures
 import matplotlib.pyplot as plt
+import pandas as pd
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 import matplotlib
 matplotlib.pyplot.switch_backend('Agg')
-# import io
-# matplotlib.use("macOSX")
-# matplotlib.get_backend()
 
 def zcr_sigenergy(INPUTPATH, OUTPATH):
     try:
@@ -28,17 +26,33 @@ def zcr_sigenergy(INPUTPATH, OUTPATH):
         ax1.set_title('Channel 0')
         ax2.set_title('Channel 1')
         fig.tight_layout()
-
-        # buf = io.BytesIO()
-        # plt.savefig(buf, format='png')
-        # plt.close()
-        # plt_bytes = buf.getvalue()
-        # buf.close()
-
-
-
         plt.savefig(OUTPATH + 'zcr_energy.png')
         plt.close()
         return "Complete"
+    except Exception as e:
+        return "Error: " + str(e)
+
+def feature_extraction(INPUTPATH, OUTPATH):
+    try:
+        [Fs, x] = audioBasicIO.read_audio_file(INPUTPATH)
+        c1 = ShortTermFeatures.feature_extraction(x[:,0], Fs, 0.050*Fs, 0.025*Fs)
+        c2 = ShortTermFeatures.feature_extraction(x[:,1], Fs, 0.050*Fs, 0.025*Fs)
+
+        channel1 = {}
+        channel2 = {}
+        for i in range(0, len(c1[1])):
+            channel1[c1[1][i]] = c1[0][i]
+        
+        for i in range(0, len(c2[1])):
+            channel2[c2[1][i]] = c2[0][i]
+
+        channel1 = pd.DataFrame(channel1)
+        channel1.to_json(OUTPATH + "channel1_features.json")
+
+        channel2 = pd.DataFrame(channel2)
+        channel2.to_json(OUTPATH + "channel2_features.json")
+
+        return "Complete"
+
     except Exception as e:
         return "Error: " + str(e)
