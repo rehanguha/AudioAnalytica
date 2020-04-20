@@ -15,7 +15,10 @@
     "install": "^0.13.0",
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
+    "sass-loader": "^8.0.2",
     "vue": "^2.6.11",
+    "vue-json-compare": "^2.0.9",
+    "vue-json-tree": "^0.4.1",
     "vue-select": "^3.10.0",
     "vue-sidebar-menu": "^4.5.3"
   },

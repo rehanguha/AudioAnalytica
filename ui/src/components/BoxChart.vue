@@ -91,6 +91,7 @@ export default {
 <style>
 .highcharts-container {
   width: 1000px;
-  margin-left: 300px;
+  display: inline-block;
+  text-align: center !important;
 }
 </style>

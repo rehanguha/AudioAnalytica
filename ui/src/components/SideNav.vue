@@ -13,7 +13,7 @@ import Statistics from "./../views/Statistics";
 import _ from "lodash";
 export default {
   name: "SideNav",
-  props: ["selected"],
+  props: ["selected", "selectedFile"],
   components: {
     SidebarMenu
   },
@@ -26,6 +26,19 @@ export default {
       this.menu = temp;
       this.$emit("selectedTab", selected);
     },
+  },
+  watch: {
+    selectedFile: {
+      handler(){
+        debugger;
+        var disabled = (this.selectedFile != '' ? false : true)
+        _.each(this.menu, function(element){
+          if(element.disabled != undefined){
+            element.disabled = disabled;
+          }
+        })
+      }
+    }
   },
   data() {
     return ({
@@ -40,28 +53,34 @@ export default {
           title: "Upload Audio",
           value: "upload",
           icon: "fa fa-user",
-          class: "vsm--link_active vsm--link_exact-active"
+          class: "vsm--link_active vsm--link_exact-active",
         },
         {
           title: "Statistics",
           value: "stats",
           icon: "fa fa-chart-area",
-          class: ""
+          class: "",
+          disabled: true
         },
         {
           title: "Analytics",
           value: "analytics",
-          icon: "fa fa-chart-area"
+          icon: "fa fa-chart-area",
+          disabled: true
         },
         {
           title: "Transcribtion",
           value: "transcribtion",
-          icon: "fa fa-chart-area"
+          icon: "fa fa-chart-area",
+          disabled: true
+
         },
         {
           title: "Share",
           value: "share",
-          icon: "fa fa-chart-area"
+          icon: "fa fa-chart-area",
+          disabled: true
+
         }
       ]
     });

@@ -2,6 +2,7 @@ from pyAudioAnalysis import audioBasicIO
 from pyAudioAnalysis import ShortTermFeatures
 import matplotlib.pyplot as plt
 import pandas as pd
+import json
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 import matplotlib
 matplotlib.pyplot.switch_backend('Agg')
@@ -51,8 +52,11 @@ def feature_extraction(INPUTPATH, OUTPATH):
 
         channel2 = pd.DataFrame(channel2)
         channel2.to_json(OUTPATH + "channel2_features.json")
-
-        return "Complete"
+        result = {
+            'channel1': json.loads(channel1.to_json()),
+            'channel2': json.loads(channel2.to_json())
+        }
+        return json.dumps(result)
 
     except Exception as e:
         return "Error: " + str(e)

@@ -10,7 +10,7 @@ import Statistics from './../views/Statistics';
 
 export default {
   name: "Body",
-  props: ["selected"],
+  props: ["selected", "sendFile"],
   components: {
     Upload,
     Statistics,
@@ -25,10 +25,10 @@ export default {
     })
   },
   watch: {
-    selected: {
+    selected_file: {
       immediate: true,
       handler() {
-        
+        this.$emit('sendFile',this.selected_file);
       }
     }
   },

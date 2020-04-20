@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <SideNav @selectedTab="selectedTab"></SideNav>
-    <Body :selected="selected"></Body>
+    <SideNav @selectedTab="selectedTab" :selectedFile="selected_file"></SideNav>
+    <Body :selected="selected" @sendFile="sendFile"></Body>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   </div>
 </template>
@@ -16,16 +16,22 @@ export default {
   name: "App",
   components: {
     SideNav,
-    Body
+    Body,
   },
   data() {
     return {
-      selected: {value: "upload"}
+      selected: {value: "upload"},
+      selected_file: ""
+
     };
   },
   methods: {
     selectedTab: function(selected){
       this.selected = selected;
+    },
+    sendFile: function(selected){
+      debugger;
+      this.selected_file = selected;
     }
   }
 };
