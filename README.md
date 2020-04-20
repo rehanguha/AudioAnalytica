@@ -17,11 +17,20 @@ source AudioAnalytica/bin/activate
 python3 -m pip install requirements.txt
 python3 -m pip install src/pyAudioAnalysis/requirements.txt
 
+python -m spacy download en
+
 ```
 
 ## UI Setup
 
+```shell
+
 Install Yarn
+
 cd ui
+
 yarn install
+
 yarn serve
+
+```
