@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Audio Statistics</h2>
+    <h2>Duration Statistics</h2>
     <p>some discription</p>
     <highcharts :options="chartOptions"></highcharts>
   </div>

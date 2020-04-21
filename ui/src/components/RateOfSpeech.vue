@@ -22,7 +22,7 @@ export default {
       .then(response => {
         var data = JSON.parse(response.data)[0];
 
-        this.options.series[0].data = [parseInt(data[0]["rate_of_speech"])]
+        this.options.series[0].data = [parseInt(data["rate_of_speech"])]
       })
       .catch(error => {});
   },
@@ -110,7 +110,7 @@ export default {
                 "</div>"
             },
             tooltip: {
-              valueSuffix: " Word per second"
+              valueSuffix: "syllables/sec"
             }
           }
         ]

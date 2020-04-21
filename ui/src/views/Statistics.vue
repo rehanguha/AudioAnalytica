@@ -1,12 +1,8 @@
-
-
-
-
 <template>
   <div>
     <Transcribe :selectedFile="selected_file"></Transcribe>
-    <BoxChart :selectedFile="selected_file"></BoxChart>
     <WordCloud :selectedFile="selected_file"></WordCloud>
+    <BoxChart :selectedFile="selected_file"></BoxChart>
     <NumbersChart :selectedFile="selected_file"></NumbersChart>
     <DurationChart :selectedFile="selected_file"></DurationChart>    
     <GaugeChart :selectedFile="selected_file"></GaugeChart>

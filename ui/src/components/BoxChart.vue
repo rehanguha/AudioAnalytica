@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h2>Wave Analysis</h2>
+    <hr>
+    <h2>Quantile Analysis (using Box-Plot)</h2>
     <p>some discription</p>
     <highcharts :options="options"></highcharts>
   </div>

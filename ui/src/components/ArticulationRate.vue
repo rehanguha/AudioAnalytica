@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Articulation Rate</h2>
-    <p>some discription</p>
+    <p>Articulation rate (AR) is a prosodic feature, defined as a measure of rate of speaking in which all pauses are excluded from the calculation. Although there is a general agreement that AR is not constant but varies throughout speech, our knowledge in this area is still very limited.</p>
     <highcharts :options="options"></highcharts>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
     axios
       .get("http://localhost:5001/quantileanalysis?filename="+ this.selectedFile)
       .then(response => {
-        var data = JSON.parse(response.data)[0];
+        var data = JSON.parse(response.data);
         this.options.series[0].data = [parseInt(data[0]["articulation_rate"])]
       })
       .catch(error => {});
@@ -109,7 +109,7 @@ export default {
                 "</div>"
             },
             tooltip: {
-              valueSuffix: " Word per second"
+              valueSuffix: "Word per second"
             }
           }
         ]
