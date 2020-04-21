@@ -11,17 +11,6 @@ import RateOfSpeech from './RateOfSpeech'
 export default {
   name: "GaugeChart",
   props: ["selectedFile"],
-  components: {
     ArticulationRate,
     RateOfSpeech
   }
-
-};
-</script>
-
-<style>
-.gauge-container{
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-</style>

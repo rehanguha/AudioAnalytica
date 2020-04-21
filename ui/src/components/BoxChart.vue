@@ -18,7 +18,7 @@ export default {
     axios
       .get("http://localhost:5001/quantileanalysis?filename=" + this.selectedFile)
       .then(response => {
-        var data = response.data[0];
+        var data = JSON.parse(response.data)[0];
 
         var temp = [
           [
