@@ -25,7 +25,6 @@ export default {
       axios
         .get("http://localhost:5001/transcribe_data?filename=" + this.selectedFile)
         .then(response => {
-          debugger;
           this.value = response["data"]["_text"]
         })
         .catch(error => {});      

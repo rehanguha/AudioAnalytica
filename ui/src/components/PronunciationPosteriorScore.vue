@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='gauge-chart'>
     <h2>Pronunciation Posterior Score</h2>
     <p></p>
     <highcharts :options="options"></highcharts>
@@ -31,7 +31,6 @@ export default {
       options: {
         chart: {
           type: "solidgauge",
-          width: 800
         },
 
         title: null,
