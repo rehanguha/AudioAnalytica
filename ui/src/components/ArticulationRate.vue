@@ -21,7 +21,7 @@ export default {
       .get("http://localhost:5001/quantileanalysis?filename="+ this.selectedFile)
       .then(response => {
         var data = JSON.parse(response.data);
-        this.options.series[0].data = [parseInt(data[0]["articulation_rate"])]
+        this.options.series[0].data = [parseFloat(data[0]["articulation_rate"])]
       })
       .catch(error => {});
   },
@@ -105,11 +105,11 @@ export default {
               format:
                 '<div style="text-align:center">' +
                 '<span style="font-size:25px">{y}</span><br/>' +
-                '<span style="font-size:12px;opacity:0.4">Rate</span>' +
+                '<span style="font-size:12px;opacity:0.4">syllables/sec</span>' +
                 "</div>"
             },
             tooltip: {
-              valueSuffix: "Word per second"
+              valueSuffix: "syllables/sec"
             }
           }
         ]

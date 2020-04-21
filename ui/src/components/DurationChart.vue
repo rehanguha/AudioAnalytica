@@ -24,13 +24,13 @@ export default {
         this.chartOptions.series = [
           {
             name: "Speaking Duration",
-            data: [parseFloat(data["speaking_duration"])]
+            data: [parseFloat(data["speaking_duration"]),0,0]
           },
           {
             name: "Original Duration",
-            data: [parseFloat(data["original_duration"])]
+            data: [0,parseFloat(data["original_duration"]),0]
           },
-          { name: "Balance", data: [parseFloat(data["balance"])] }
+        { name: "Balance", data: [0,0,parseFloat(data["balance"])] }
         ];
       })
       .catch(error => {});
@@ -45,7 +45,9 @@ export default {
           text: ""
         },
         xAxis: {
-          categories: [""]
+          categories: ['Speaking Duration',
+            'Original Duration',
+            'Balance']
         },
         yAxis: {
           min: 0,

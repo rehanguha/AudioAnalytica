@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>Speech Tempo</h2>
-    <p>Speech tempo is a measure of the number of speech units of a given type produced within a given amount of time. Speech tempo is believed to vary within the speech of one person according to contextual and emotional factors, between speakers and also between different languages and dialects. However, there are many problems involved in investigating this variance scientifically.</p>
+    <h2>Pronunciation Posterior Score</h2>
+    <p></p>
     <highcharts :options="options"></highcharts>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
       .then(response => {
         var data = JSON.parse(response.data)[0];
 
-        this.options.series[0].data = [parseFloat(data["rate_of_speech"])]
+        this.options.series[0].data = [parseFloat(data["pronunciation_posteriori_probability_score_percentage"])]
       })
       .catch(error => {});
   },
@@ -60,6 +60,8 @@ export default {
 
         // the value axis
         yAxis: {
+            min: 0,
+        max: 100,
           stops: [
             [0.1, "#55BF3B"], // green
             [0.5, "#DDDF0D"], // yellow
@@ -88,9 +90,9 @@ export default {
         },
         yAxis: {
           min: 0,
-          max: 5,
+          max: 100,
           title: {
-            text: "Speech Tempo"
+            text: ""
           }
         },
 
@@ -100,17 +102,17 @@ export default {
 
         series: [
           {
-            name: "Speed",
+            name: "",
             data: [0],
             dataLabels: {
               format:
                 '<div style="text-align:center">' +
                 '<span style="font-size:25px">{y}</span><br/>' +
-                '<span style="font-size:12px;opacity:0.4">syllables/sec</span>' +
+                '<span style="font-size:12px;opacity:0.4">%</span>' +
                 "</div>"
             },
             tooltip: {
-              valueSuffix: "syllables/sec"
+              valueSuffix: "Percentage"
             }
           }
         ]
