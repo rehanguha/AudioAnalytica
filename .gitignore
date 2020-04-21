@@ -8,3 +8,4 @@ audioanalytica_dev
 experiments
 output/*
 ui/node_modules
+input/*
