@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='gauge-chart'>
     <h2>Speech Tempo</h2>
     <p>Speech tempo is a measure of the number of speech units of a given type produced within a given amount of time. Speech tempo is believed to vary within the speech of one person according to contextual and emotional factors, between speakers and also between different languages and dialects. However, there are many problems involved in investigating this variance scientifically.</p>
     <highcharts :options="options"></highcharts>
@@ -31,7 +31,6 @@ export default {
       options: {
         chart: {
           type: "solidgauge",
-          width: 800
         },
 
         title: null,

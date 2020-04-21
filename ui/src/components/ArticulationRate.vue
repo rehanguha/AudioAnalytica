@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='gauge-chart'>
     <h2>Articulation Rate</h2>
     <p>Articulation rate (AR) is a prosodic feature, defined as a measure of rate of speaking in which all pauses are excluded from the calculation. Although there is a general agreement that AR is not constant but varies throughout speech, our knowledge in this area is still very limited.</p>
     <highcharts :options="options"></highcharts>
@@ -30,7 +30,6 @@ export default {
       options: {
         chart: {
           type: "solidgauge",
-          width: 800
         },
 
         title: null,

@@ -37,6 +37,9 @@ export default {
 </script>
 
 <style>
+.highcharts-container{
+  width: 100% !important;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -45,6 +48,6 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   display: grid;
-  grid-template-columns: 200px auto;
+  grid-template-columns: 15% 85%;
 }
 </style>
