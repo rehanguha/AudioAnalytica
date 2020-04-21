@@ -2,7 +2,7 @@
   <div>
     <hr>
     <h2>Duration Statistics</h2>
-    <p>some discription</p>
+    <p></p>
     <highcharts :options="chartOptions"></highcharts>
     <hr>
   </div>
@@ -47,9 +47,9 @@ export default {
           text: ""
         },
         xAxis: {
-          categories: ['Speaking Duration',
-            'Original Duration',
-            'Balance']
+          categories: ['Speaking Duration (SD) (excl. fillers and pause)',
+            'Original Duration (OD) (inc. fillers and pause)',
+            'Balance (Ratio b/w SD and OD)']
         },
         yAxis: {
           min: 0,
