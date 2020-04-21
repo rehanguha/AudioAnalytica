@@ -18,9 +18,11 @@ export default {
   props: ["selectedFile"],
   mounted() {
     axios
-      .get("http://localhost:5001/quantileanalysis?filename=input/"+ this.selectedFile)
+      .get("http://localhost:5001/quantileanalysis?filename="+ this.selectedFile)
       .then(response => {
-        this.options.series[0].data = [parseInt(response["data"][0]["rate_of_speech"])]
+        var data = JSON.parse(response.data)[0];
+        console.log(data)
+        this.options.series[0].data = [parseInt(data["rate_of_speech"])]
       })
       .catch(error => {});
   },
