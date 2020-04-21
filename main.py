@@ -46,6 +46,10 @@ def transcribe():
         else:
             word_frequency[word] = 1
     resp.update({'word_frequency': word_frequency})
+    name = extractFilename(AUDIO_FILE)
+    outputpath = "output/" + str(name) + "/"
+    with open(outputpath + 'transcribe.json', 'w') as transcribe: 
+        transcribe.write(json.dumps(resp))     
     return(json.jsonify(resp))       
 
 
@@ -56,6 +60,17 @@ def quantileanalysis():
     data = aa.mysptotal(filename, PRAAT_FILE)
     return json.dumps(data)
     #return json.dumps({ "0": {"number_of_syllables":"29","number_of_pauses":"1","rate_of_speech":"2","articulation_rate":"4","speaking_duration":"7.7","original_duration":"12.3","balance":"0.6","f0_mean":"106.49","f0_std":"10","f0_median":"105","f0_min":"88","f0_max":"144","f0_quantile25":"100","f0_quan75":"111"} })
+
+@app.route("/transcribe_data", methods = ['GET'])
+def transcribe_data():
+    filename = request.args.get('filename')
+    name = extractFilename(filename)
+    data = {}
+    path = "output/" + str(name) + "/"
+    with open(path + 'transcribe.json', 'r') as transcribe: 
+        data = transcribe.read()
+    return data
+
 
 # /waveform?filename=<inputfilename with path>
 @app.route("/waveform", methods = ['GET', 'POST'])

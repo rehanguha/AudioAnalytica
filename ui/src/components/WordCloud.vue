@@ -53,7 +53,7 @@ export default {
   methods: {
     get_wordcloud_data(){
       axios
-        .get("http://localhost:5001/transcribe?filename=" + this.selectedFile)
+        .get("http://localhost:5001/transcribe_data?filename=" + this.selectedFile)
         .then(response => {
           var data = response.data['word_frequency'];
           var temp = []
