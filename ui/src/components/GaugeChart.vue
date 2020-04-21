@@ -1,9 +1,11 @@
 <template>
 <div>
-    <RateOfSpeech :selectedFile="selectedFile"></RateOfSpeech>
+    
+    <PronunciationPosteriorScore :selectedFile="selectedFile"></PronunciationPosteriorScore>
+    <hr>
     <div class='gauge-container'>
       <ArticulationRate :selectedFile="selectedFile"></ArticulationRate>
-      <PronunciationPosteriorScore :selectedFile="selectedFile"></PronunciationPosteriorScore>
+      <RateOfSpeech :selectedFile="selectedFile"></RateOfSpeech>
     </div>
 
 
