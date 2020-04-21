@@ -30,7 +30,6 @@ export default {
       this.selected = selected;
     },
     sendFile: function(selected){
-      debugger;
       this.selected_file = selected;
     }
   }
@@ -46,6 +45,6 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   display: grid;
-  grid-template-columns: 300px auto;
+  grid-template-columns: 200px auto;
 }
 </style>

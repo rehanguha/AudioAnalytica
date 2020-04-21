@@ -1,5 +1,9 @@
 <template>
-  <highcharts :options="chartOptions"></highcharts>
+  <div>
+    <h2>Audio Statistics</h2>
+    <p>some discription</p>
+    <highcharts :options="chartOptions"></highcharts>
+  </div>
 </template>
 
 <script>
@@ -27,7 +31,7 @@ export default {
           polar: true
         },
         title: {
-          text: "Audio Statistics"
+          text: ""
         },
         tooltip: {
           outside: true

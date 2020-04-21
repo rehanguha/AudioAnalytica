@@ -1,22 +1,25 @@
 <template>
-  <div class="json-compare">
-    <div>
-      <vue-json-tree :raw="JSON.stringify(channel1)" ></vue-json-tree>
-    </div>
-    <div>
-      <vue-json-tree :raw="JSON.stringify(channel2)" ></vue-json-tree>
-    </div>
+  <div>
+    <h2>Channel Comparison</h2>
+    <p>description</p>
+    <div class="json-compare">
+      <div>
+        <json-viewer :value="channel1" boxed :expand-depth=1 copyable ></json-viewer>
+      </div>
+      <div>
+        <json-viewer :value="channel2" boxed :expand-depth=1 copyable></json-viewer>
+      </div>
+    </div>    
   </div>
-
 </template>
 
 <script>
-import VueJsonTree from 'vue-json-tree';
+import JsonViewer from 'vue-json-viewer';
 import axios from 'axios';
 export default {
   props: ["selectedFile"],
   components: {
-    VueJsonTree
+    JsonViewer
   },
   mounted(){
     this.get_channel_data();
@@ -44,9 +47,13 @@ export default {
 <style >
   .json-compare{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 50% 50%;    
   }
   .json-tree-root{
     min-width: 0px !important;
+  }
+  .jv-container .jv-code.boxed {
+    max-height: 500px;
+    overflow: auto;
   }
 </style>

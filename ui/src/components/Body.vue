@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="body-content">
     <component v-bind:is="components[selected.value]" :selected_file="selected_file" @exportFile="exportFile"></component>
   </div>
 </template>
@@ -7,6 +7,7 @@
 <script>
 import Upload from './../views/Upload';
 import Statistics from './../views/Statistics';
+import AudioStatistics from './../views/AudioStatistics';
 
 export default {
   name: "Body",
@@ -19,7 +20,8 @@ export default {
     return({
       components: {
         "upload": Upload,
-        "stats": Statistics
+        "stats": Statistics,
+        "analytics": AudioStatistics
       },
       selected_file: ""
     })
@@ -41,4 +43,7 @@ export default {
 </script>
 
 <style>
+  .body-content{
+    margin-bottom: 50px; 
+  }
 </style>

@@ -1,5 +1,9 @@
 <template>
-  <highcharts :options="options"></highcharts>
+  <div>
+    <h2>Rate of Speech</h2>
+    <p>some discription</p>
+    <highcharts :options="options"></highcharts>
+  </div>
 </template>
 
 <script>
@@ -15,7 +19,9 @@ export default {
   mounted() {
     axios
       .get("http://localhost:5001/quantileanalysis?filename=input/"+ this.selectedFile)
-      .then(response => {})
+      .then(response => {
+        this.options.series[0].data = [parseInt(response["data"][0]["rate_of_speech"])]
+      })
       .catch(error => {});
   },
   data() {
@@ -80,7 +86,7 @@ export default {
         },
         yAxis: {
           min: 0,
-          max: 200,
+          max: 5,
           title: {
             text: "Rate of Speech"
           }
@@ -93,7 +99,7 @@ export default {
         series: [
           {
             name: "Speed",
-            data: [80],
+            data: [0],
             dataLabels: {
               format:
                 '<div style="text-align:center">' +
@@ -102,7 +108,7 @@ export default {
                 "</div>"
             },
             tooltip: {
-              valueSuffix: " km/h"
+              valueSuffix: " Word per second"
             }
           }
         ]

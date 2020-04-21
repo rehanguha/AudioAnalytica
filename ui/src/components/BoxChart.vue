@@ -1,5 +1,9 @@
 <template>
-  <highcharts :options="options"></highcharts>
+  <div>
+    <h2>Wave Analysis</h2>
+    <p>some discription</p>
+    <highcharts :options="options"></highcharts>
+  </div>
 </template>
 <script>
 import Highcharts from "highcharts";
@@ -39,7 +43,7 @@ export default {
         },
 
         title: {
-          text: "Wave Analysis"
+          text: ""
         },
 
         legend: {
@@ -90,7 +94,7 @@ export default {
 
 <style>
 .highcharts-container {
-  width: 1000px;
+  width: 100%;
   display: inline-block;
   text-align: center !important;
 }

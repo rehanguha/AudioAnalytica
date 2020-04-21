@@ -1,7 +1,7 @@
 /* eslint-disable no-debugger */
 <template>
 <div>
-  <sidebar-menu :menu="menu" :width="'300px'" :hideToggle="true" @item-click="onItemClick" />
+  <sidebar-menu :menu="menu" :width="'200px'" :hideToggle="true" @item-click="onItemClick" />
 </div>
 </template>
 
@@ -30,7 +30,6 @@ export default {
   watch: {
     selectedFile: {
       handler(){
-        debugger;
         var disabled = (this.selectedFile != '' ? false : true)
         _.each(this.menu, function(element){
           if(element.disabled != undefined){
@@ -52,33 +51,26 @@ export default {
         {
           title: "Upload Audio",
           value: "upload",
-          icon: "fa fa-user",
+          icon: "fa fa-upload",
           class: "vsm--link_active vsm--link_exact-active",
         },
         {
-          title: "Statistics",
+          title: "Text Statistics",
           value: "stats",
-          icon: "fa fa-chart-area",
+          icon: "fa fa-bar-chart",
           class: "",
           disabled: true
         },
         {
-          title: "Analytics",
+          title: "Audio Statistics",
           value: "analytics",
-          icon: "fa fa-chart-area",
+          icon: "fa fa-file-text",
           disabled: true
-        },
-        {
-          title: "Transcribtion",
-          value: "transcribtion",
-          icon: "fa fa-chart-area",
-          disabled: true
-
         },
         {
           title: "Share",
           value: "share",
-          icon: "fa fa-chart-area",
+          icon: "fa fa-share",
           disabled: true
 
         }
@@ -92,6 +84,6 @@ export default {
   text-transform: unset;
 }
 .v-sidebar-menu .vsm_expanded {
-  max-width: 300px;
+  max-width: 200px;
 }
 </style>

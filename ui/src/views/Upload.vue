@@ -1,8 +1,10 @@
 <template>
   <div>
-    Please select a Audio file.
+    <h1>AudioAnalytica</h1>
+    <p>description about audio analytica</p>
+    <p>Please select a Audio file.</p>
     <vSelect :options="files" v-model="fileSelected" label="name" ></vSelect>
-    <button @click="transcribe">Transcribe</button>
+    <button @click="transcribe" class="upload btn btn-primary">Upload</button>
   </div>
 </template>
 
@@ -28,7 +30,6 @@ export default {
   watch: {
     fileSelected: {
       handler(){
-        this.$emit('exportFile', this.fileSelected);
       }
     }
   },
@@ -43,16 +44,24 @@ export default {
     },
     transcribe(){
       axios 
-      .post("http://localhost:5001/waveform?filename=input/"+ this.fileSelected)
+      .post("http://localhost:5001/waveform?filename="+ this.fileSelected)
       .then(response => {
+        this.$emit('exportFile', this.fileSelected);
       })
       .catch(error => {});
-      
+      axios 
+      .post("http://localhost:5001/analyze?filename="+ this.fileSelected)
+      .then(response => {
+        this.$emit('exportFile', this.fileSelected);
+      })
+      .catch(error => {});      
     }
   }
 }
 </script>
 
 <style>
-
+  .upload{
+    margin-top:20px;
+  }
 </style>

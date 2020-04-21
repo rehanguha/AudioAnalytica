@@ -1,5 +1,9 @@
 <template>
-  <highcharts :options="options"></highcharts>
+  <div>
+    <h2>Wordcloud</h2>
+    <p>some discription</p>
+    <highcharts :options="options"></highcharts>
+  </div>
 </template>
 
 <script>
@@ -38,7 +42,7 @@ export default {
           }
         ],
         title: {
-          text: "Wordcloud"
+          text: ""
         }
       }
     };
@@ -56,7 +60,6 @@ export default {
           _.each(data, (value, key)=> {
             temp.append({'name': key, 'weight': value})
           })
-                    debugger;
 
           this.options.series.data = temp;
           Highcharts.redraw();

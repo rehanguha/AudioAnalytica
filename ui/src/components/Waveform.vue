@@ -1,9 +1,14 @@
 <template>
   <div>
-    <h4>Waveplot</h4>
+    <h2>Waveplot</h2>
+    <p>Some Description</p>
     <img v-bind:src="wave_image">
-    <h4>Spec</h4>
+    <h2>Spec</h2>
+    <p>Some Description</p>
     <img :src="spec_image">
+    <h2>Analysis</h2>
+    <p>Some Description</p>
+    <img :src="analyze_image">
   </div>
 
 </template>
@@ -17,7 +22,8 @@ export default {
   data(){
     return {
       wave_image: "",
-      spec_image: ""
+      spec_image: "",
+      analyze_image: ""
     }
   },
   mounted(){
@@ -37,6 +43,12 @@ export default {
           this.spec_image = URL.createObjectURL(response.data);
         })
         .catch(error => {});      
+      axios
+        .get("http://localhost:5001/analyze_image?filename=" + this.selectedFile, { responseType: "blob" })
+        .then(response => {
+          this.analyze_image = URL.createObjectURL(response.data);
+        })
+        .catch(error => {});      
 
     }
   }
@@ -44,5 +56,7 @@ export default {
 </script>
 
 <style>
-
+ img {
+   width: 80%;
+ }
 </style>

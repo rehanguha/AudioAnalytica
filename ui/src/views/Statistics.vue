@@ -8,8 +8,6 @@
     <RadialChart :selectedFile="selected_file"></RadialChart>
     <GaugeChart :selectedFile="selected_file"></GaugeChart>
     <WordCloud :selectedFile="selected_file"></WordCloud>
-    <Waveform :selectedFile="selected_file"></Waveform>
-    <JsonCompare :selectedFile="selected_file"></JsonCompare>
   </div>
 </template>
 
@@ -18,8 +16,6 @@ import BoxChart from "./../components/BoxChart";
 import RadialChart from "./../components/RadialChart";
 import GaugeChart from "./../components/GaugeChart";
 import WordCloud from "./../components/WordCloud";
-import Waveform from "./../components/Waveform";
-import JsonCompare from "./../components/JsonCompare";
 
 export default {
   name: "Body",
@@ -29,8 +25,6 @@ export default {
     RadialChart,
     GaugeChart,
     WordCloud,
-    Waveform,
-    JsonCompare
   },
   watch: {
     selected: {

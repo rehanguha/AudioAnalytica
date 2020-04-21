@@ -55,7 +55,7 @@ def quantileanalysis():
     filename = request.args.get('filename')
     data = aa.mysptotal(filename, PRAAT_FILE)
     return json.dumps(data)
-    #return { "0": {"number_of_syllables":"29","number_of_pauses":"1","rate_of_speech":"2","articulation_rate":"4","speaking_duration":"7.7","original_duration":"12.3","balance":"0.6","f0_mean":"106.49","f0_std":"10","f0_median":"105","f0_min":"88","f0_max":"144","f0_quantile25":"100","f0_quan75":"111"}}
+    # return json.dumps({ "0": {"number_of_syllables":"29","number_of_pauses":"1","rate_of_speech":"2","articulation_rate":"4","speaking_duration":"7.7","original_duration":"12.3","balance":"0.6","f0_mean":"106.49","f0_std":"10","f0_median":"105","f0_min":"88","f0_max":"144","f0_quantile25":"100","f0_quan75":"111"} })
 
 # /waveform?filename=<inputfilename with path>
 @app.route("/waveform", methods = ['GET', 'POST'])
@@ -79,6 +79,12 @@ def wave_image():
     name = extractFilename(filename)
     return send_file('output/' + name + '/waveplot.png', attachment_filename='waveplot.png', mimetype='image/png')
 
+@app.route("/analyze_image", methods = ['GET'])
+def analyze_image():
+    filename = request.args.get('filename')
+    name = extractFilename(filename)
+    return send_file('output/' + name + '/zcr_energy.png', attachment_filename='zcr_energy.png', mimetype='image/png')    
+
 # /analyze?filename=<inputfilename with path>
 @app.route("/analyze", methods = ['GET', 'POST'])
 def analyze():
@@ -88,6 +94,7 @@ def analyze():
     mkDIR(outputpath)
     status = zcr_sigenergy(INPUTPATH=filename, OUTPATH=outputpath)
     return status
+    
 
 # /fe?filename=<inputfilename with path>
 @app.route("/fe", methods = ['GET', 'POST'])
