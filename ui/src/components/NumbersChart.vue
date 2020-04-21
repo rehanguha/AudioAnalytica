@@ -18,7 +18,7 @@ export default {
     axios
       .get("http://localhost:5001/quantileanalysis?filename="+ this.selectedFile)
       .then(response => {
-        let data = response['data'][0]
+        let data = JSON.parse(response['data'])[0]
         this.chartOptions.series[0]['data'] = [parseInt(data['number_of_syllables']), parseInt(data['number_of_pauses'])]
       })
       .catch(error => {});

@@ -20,7 +20,7 @@ export default {
         "http://localhost:5001/quantileanalysis?filename=" + this.selectedFile
       )
       .then(response => {
-        let data = response["data"][0];
+        let data = JSON.parse(response["data"])[0];
         this.chartOptions.series = [
           {
             name: "Speaking Duration",
@@ -30,7 +30,7 @@ export default {
             name: "Original Duration",
             data: [parseFloat(data["original_duration"])]
           },
-          { name: "Balance", data: [parseInt(data["balance"])] }
+          { name: "Balance", data: [parseFloat(data["balance"])] }
         ];
       })
       .catch(error => {});
