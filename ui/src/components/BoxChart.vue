@@ -2,7 +2,7 @@
   <div>
     <hr>
     <h2>Quantile Analysis (using Box-Plot)</h2>
-    <p>some discription</p>
+    <p></p>
     <highcharts :options="options"></highcharts>
   </div>
 </template>

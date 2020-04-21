@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h2>Audio Statistics</h2>
-    <p>some discription</p>
+    <hr>
+    <h2>Quantitative Analysis</h2>
+    <p></p>
     <highcharts :options="chartOptions"></highcharts>
   </div>
 </template>

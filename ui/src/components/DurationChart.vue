@@ -1,8 +1,10 @@
 <template>
   <div>
+    <hr>
     <h2>Duration Statistics</h2>
     <p>some discription</p>
     <highcharts :options="chartOptions"></highcharts>
+    <hr>
   </div>
 </template>
 

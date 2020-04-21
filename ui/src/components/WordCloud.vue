@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>Wordcloud</h2>
-    <p>some discription</p>
+    <h2>Word Cloud</h2>
+    <p>Word Clouds (also known as wordle, word collage or tag cloud) are visual representations of words that give greater prominence to words that appear more frequently.</p>
     <highcharts :options="options"></highcharts>
   </div>
 </template>
