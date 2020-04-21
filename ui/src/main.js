@@ -2,7 +2,11 @@ import Vue from "vue";
 import App from "./App.vue";
 import Highcharts from "highcharts";
 import HighchartsVue from "highcharts-vue";
+import { BootstrapVue } from 'bootstrap-vue'
+
 Vue.use(HighchartsVue, { Highcharts });
+Vue.use(BootstrapVue);
+
 Vue.config.productionTip = false;
 
 new Vue({

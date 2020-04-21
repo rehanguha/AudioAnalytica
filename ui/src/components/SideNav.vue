@@ -36,6 +36,7 @@ export default {
             element.disabled = disabled;
           }
         })
+        this.onItemClick(event, this.menu[2]);
       }
     }
   },
@@ -57,14 +58,14 @@ export default {
         {
           title: "Text Statistics",
           value: "stats",
-          icon: "fa fa-bar-chart",
+          icon: "fa fa-file-text",
           class: "",
           disabled: true
         },
         {
           title: "Audio Statistics",
           value: "analytics",
-          icon: "fa fa-file-text",
+          icon: "fa fa-bar-chart",
           disabled: true
         },
         {

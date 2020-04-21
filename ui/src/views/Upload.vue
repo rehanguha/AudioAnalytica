@@ -3,8 +3,13 @@
     <h1>AudioAnalytica</h1>
     <p>description about audio analytica</p>
     <p>Please select a Audio file.</p>
-    <vSelect :options="files" v-model="fileSelected" label="name" ></vSelect>
-    <button @click="transcribe" class="upload btn btn-primary">Upload</button>
+    <div>
+      <vSelect :options="files" v-model="fileSelected" label="name" ></vSelect>
+    </div>
+    <div>
+      <button @click="transcribe" class="upload btn btn-primary">Upload</button>
+    </div>
+    
   </div>
 </template>
 
@@ -63,5 +68,9 @@ export default {
 <style>
   .upload{
     margin-top:20px;
+  }
+  .v-select {
+    width: 50%;
+    display: inline-block;
   }
 </style>

@@ -36,7 +36,7 @@ export default {
           {
             type: "wordcloud",
             data: [
-              { name: "one", weight: 1 },
+              {  },
             ],
             name: "Occurrences"
           }
@@ -58,10 +58,9 @@ export default {
           var data = response.data['word_frequency'];
           var temp = []
           _.each(data, (value, key)=> {
-            temp.append({'name': key, 'weight': value})
+            temp.push({'name': key, 'weight': value})
           })
-
-          this.options.series.data = temp;
+          this.options.series[0].data = temp;
           Highcharts.redraw();
         })
         .catch(error => {});      

@@ -4,27 +4,34 @@
 
 <template>
   <div>
+    <Transcribe :selectedFile="selected_file"></Transcribe>
     <BoxChart :selectedFile="selected_file"></BoxChart>
-    <RadialChart :selectedFile="selected_file"></RadialChart>
-    <GaugeChart :selectedFile="selected_file"></GaugeChart>
     <WordCloud :selectedFile="selected_file"></WordCloud>
+    <NumbersChart :selectedFile="selected_file"></NumbersChart>
+    <DurationChart :selectedFile="selected_file"></DurationChart>    
+    <GaugeChart :selectedFile="selected_file"></GaugeChart>
   </div>
 </template>
 
 <script>
 import BoxChart from "./../components/BoxChart";
-import RadialChart from "./../components/RadialChart";
 import GaugeChart from "./../components/GaugeChart";
 import WordCloud from "./../components/WordCloud";
+import NumbersChart from "./../components/NumbersChart";
+import DurationChart from "./../components/DurationChart";
+import Transcribe from "./../components/Transcribe";
+
 
 export default {
   name: "Body",
   props: ["selected", 'selected_file'],
   components: {
     BoxChart,
-    RadialChart,
     GaugeChart,
     WordCloud,
+    NumbersChart,
+    DurationChart,
+    Transcribe
   },
   watch: {
     selected: {

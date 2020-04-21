@@ -16,7 +16,7 @@ export default {
   name: "RadialChart",
   mounted() {
     axios
-      .get("http://172.17.2.12:5001/quantileanalysis?filename=c.wav&path=input")
+      .get("http://localhost:5001/quantileanalysis?filename=c.wav&path=input")
       .then(response => {})
       .catch(error => {});
   },
