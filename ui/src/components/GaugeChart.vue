@@ -1,9 +1,14 @@
 <template>
-  <div class='gauge-container'>
+<div>
     <RateOfSpeech :selectedFile="selectedFile"></RateOfSpeech>
-    <ArticulationRate :selectedFile="selectedFile"></ArticulationRate>
-    <PronunciationPosteriorScore :selectedFile="selectedFile"></PronunciationPosteriorScore>
-  </div>
+    <div class='gauge-container'>
+      <ArticulationRate :selectedFile="selectedFile"></ArticulationRate>
+      <PronunciationPosteriorScore :selectedFile="selectedFile"></PronunciationPosteriorScore>
+    </div>
+
+
+</div>
+  
 </template>
 
 <script>
@@ -26,14 +31,9 @@ export default {
 <style>
 .gauge-container{
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 50% 50%;
 }
 .gauge-chart > h2 {
   margin: 0px !important;
-}
-.gauge-chart{
-  display: grid;
-  grid-template-rows: 10% 25% 65%;
-  height: 500px;
 }
 </style>
