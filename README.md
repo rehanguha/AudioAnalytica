@@ -21,7 +21,11 @@ python3 -m pip install src/pyAudioAnalysis/requirements.txt
 
 ## UI Setup
 
+```shell
+
 Install Yarn
 cd ui
 yarn install
 yarn serve
+
+```
