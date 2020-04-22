@@ -1,7 +1,7 @@
 <template>
   <div class='gauge-chart'>
     <h2>Pronunciation Posterior Score</h2>
-    <p>the posterior probability in the above equation can be expressed as a conditional probability of the word sequence given the acoustic observations. (using binomial discrete random variable)</p>
+    <p>the posterior probability can be expressed as a conditional probability of the word sequence given the acoustic observations. (using binomial discrete random variable)</p>
     <highcharts :options="options"></highcharts>
   </div>
 </template>

@@ -1,14 +1,20 @@
 <template>
   <div>
     <h1>AudioAnalytica</h1>
-    <p>description about audio analytica</p>
-    <p>Please select a Audio file.</p>
+    <h4>No-Code Audio Analytics Dashboard</h4>
+    <p>AudioAnalytica is a no-code platform and audio analytics dashboard.
+This is one of a kind All-in-One Audio analytics platform.
+There are no to less solutions who offer an audio analysis and analytics platform for general and not specific to one vertical.
+Dashboard for individuals looking to get insight from audio files and use those knowledge for their business with no knowledge of Audio Processing.</p>
+    <hr>
+    <p><b>Please select a Audio file.</b></p>
     <div>
       <vSelect :options="files" v-model="fileSelected" label="name" ></vSelect>
     </div>
     <div>
       <button @click="transcribe" class="upload btn btn-primary">Upload</button>
     </div>
+    <hr>
     <loading :active.sync="isLoading" :can-cancel="true" :is-full-page="false" :opacity="0.2"></loading>
   </div>
 </template>
