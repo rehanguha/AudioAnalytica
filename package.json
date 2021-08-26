@@ -1,3 +1,5 @@
-"scripts": {
-  "start": "yarn serve"
+{
+  "scripts": {
+    "start": "yarn serve"
+  }
 }
